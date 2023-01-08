@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Заказы</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        TABLE {
+            border-collapse: collapse;
+        }
+        TD, TH {
+        padding: 3px;
+        border: 1px solid black;
+        }
+        TH {
+        background: #b0e0e6;
+        }
+
+
+    </style>
+
+</head>
+<body>
+<div th:insert="blocks/headerAdmin :: headerAdmin"></div>
+<div class="container text-center">
+    <table>
+        <tr>
+            <td>Имя пользователя</td>
+            <td>Мобильный телефон</td>
+            <td>Email адрес</td>
+            <td>Коментарий к заказу</td>
+            <td>Дата заказа</td>
+            <td>Список товаров</td>
+        </tr>
+        <th:block th:each="order : ${listOrders}">
+            <tr>
+                <td th:text="${order.key.fullName}"></td>
+                <td th:text="${order.key.mobilePhone}"></td>
+                <td th:text="${order.key.email}"></td>
+                <td th:text="${order.key.commentToOrder}"></td>
+                <td th:text="${#temporals.format(order.key.dateOrder, 'dd/MMM/yyyy HH:mm')}"></td>
+                <td>
+                    <p>Товары:
+                    </p>
+                    <th:block th:each="basket,state : ${order.value.basket}">
+                        <p th:text="${state.count}+')' + 'Продукт ' + ${basket.key} + ' ' + '- В количестве ' + ${basket.value} + ': ' + ${basket.key.prise}*${basket.value}">
+                        </p>
+                    </th:block>
+                </td>
+            </tr>
+        </th:block>
+    </table>
+</div>
+</body>
+</html>

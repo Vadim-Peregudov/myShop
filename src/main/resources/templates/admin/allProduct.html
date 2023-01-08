@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Товары</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        TABLE {
+            border-collapse: collapse;
+        }
+        TD, TH {
+        padding: 3px;
+        border: 1px solid black;
+        }
+        TH {
+        background: #b0e0e6;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+<div th:insert="blocks/headerAdmin :: headerAdmin"></div>
+<div class="container">
+    <table>
+        <tr>
+            <td>Название товара</td>
+            <td>Основные характеристики</td>
+            <td colspan="2">Опции</td>
+        </tr>
+        <th:block th:each="phone : ${allIphone}">
+            <tr>
+                <td th:text="${phone}"></td>
+                <td>
+                    <p th:text="'Id = ' + ${phone.id}"></p>
+                    <p th:text="'Размер памяти = ' +${phone.size.size}"></p>
+                    <p th:text="'Цвет = ' + ${phone.color.color}"></p>
+                    <p th:text="'Цена = ' + ${phone.prise}"></p>
+                    <p th:text="'Информация = ' + ${phone.info}"></p>
+                    <p th:text="'Изображение = ' + ${phone.image}"></p>
+                    <p th:text="'Статус = ' + ${phone.statusProduct.status}"></p>
+                </td>
+                <td>
+                    <a th:href="@{'~/admin/all-product/update/' + ${phone.category.id} + '/' + ${phone.id}}">Изменить</a>
+                </td>
+                <td><a th:href="@{'~/admin/all-product/delete/' + ${phone.category.id} + '/' + ${phone.id}}">Удалить</a>
+                </td>
+            </tr>
+        </th:block>
+        <th:block th:each="watch : ${allWatch}">
+            <tr>
+                <td th:text="${watch}"></td>
+                <td>
+                    <p th:text="'Id = ' + ${watch.id}"></p>
+                    <p th:text="'Цвет корпуса и ремешка = ' +${watch.colorBody.color}"></p>
+                    <p th:text="'Диметр = ' + ${watch.watchDiameter.diameter}"></p>
+                    <p th:text="'Цена = ' + ${watch.prise}"></p>
+                    <p th:text="'Информация = ' + ${watch.info}"></p>
+                    <p th:text="'Изображение = ' + ${watch.image}"></p>
+                    <p th:text="'Статус = ' + ${watch.statusProduct.status}"></p>
+                </td>
+                <td>
+                    <a th:href="@{'~/admin/all-product/update/' + ${watch.category.id} + '/' + ${watch.id}}">Изменить</a>
+                </td>
+                <td><a th:href="@{'~/admin/all-product/delete/' + ${watch.category.id} + '/' + ${watch.id}}">Удалить</a>
+                </td>
+            </tr>
+        </th:block>
+    </table>
+</div>
+
+</body>
+</html>

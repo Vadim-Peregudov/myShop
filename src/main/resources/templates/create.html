@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}"></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<!--<form action="#" th:action="@{/test/create/iphone}" th:object="${iphone}" method="post">-->
+<!--    <label class="col-form-label">Название модели</label>-->
+<!--    <br>-->
+<!--    <input class="form-control" type="text" th:field="*{name}">-->
+<!--    <br>-->
+<!--    <label class="col-form-label">Категория товара</label>-->
+<!--    <select th:field="*{category}">-->
+<!--        <option th:each="category : ${allCategory}" th:value="${category.id}" th:text="${category.category}"></option>-->
+<!--    </select>-->
+<!--    <br>-->
+<!--    <label class="col-form-label">Размер памяти</label>-->
+<!--    <select th:field="*{size}">-->
+<!--        <option th:each="memorySize : ${allMemorySize}" th:value="${memorySize.id}"-->
+<!--                th:text="${memorySize.size}"></option>-->
+<!--    </select>-->
+<!--    <br>-->
+<!--    <label class="col-form-label">Цвет</label>-->
+<!--    <select th:field="*{color}">-->
+<!--        <option th:each="color : ${allColor}" th:value="${color.id}" th:text="${color.color}"></option>-->
+<!--    </select>-->
+<!--    <br>-->
+<!--    <label class="col-form-label">Статус</label>-->
+<!--    <select th:field="*{statusProduct}">-->
+<!--        <option th:each="status : ${allStatus}" th:value="${status.id}" th:text="${status.status}"></option>-->
+<!--    </select>-->
+<!--    <br>-->
+<!--    <label class="col-form-label">Цена</label>-->
+<!--    <br>-->
+<!--    <input class="form-control" type="text" th:field="*{prise}">-->
+<!--    <br>-->
+<!--    <label class="col-form-label">информация</label>-->
+<!--    <br>-->
+<!--    <input class="form-control" type="text" th:field="*{info}">-->
+<!--    <br>-->
+<!--    <button type="submit" class="btn btn-primary">Отправить</button>-->
+<!--    -->
+</form>
+</body>
+</html>
